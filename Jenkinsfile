@@ -4,8 +4,8 @@ pipeline {
 
     agent {
         docker {
-            image 'node'
-            args '-u root'
+            image 'ubuntu'
+            args '/bin/bash'
         }
     }
 
@@ -13,13 +13,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'npm install'
+                sh 'apt-get update'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'npm test'
+                sh 'apt-get update'
             }
         }
     }
